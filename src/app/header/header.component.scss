@@ -1,0 +1,32 @@
+.headerMain {
+    background-color: gray;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px 0;
+
+    img {
+        height: 100px;
+        padding-left: 100px;
+    }
+}
+
+.headerChild {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+        font-size: 25px;
+        margin-left: 35px;
+    }
+}
+
+.logoLinks {
+    display: flex;
+    align-items: center;
+    width: 750px;
+    justify-content: space-between;
+}
