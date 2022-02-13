@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NotesAreaComponent } from './notes-area/notes-area.component';
 import { InputAreaComponent } from './input-area/input-area.component';
-import { NotesService } from './services/notes.service';
 
 
 @NgModule({
@@ -18,8 +17,7 @@ import { NotesService } from './services/notes.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    NotesService
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

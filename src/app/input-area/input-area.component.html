@@ -1,14 +1,17 @@
 <div class="notesContainer">
 
-    <form class="notesChild" (ngSubmit)="onSubmit()">
-        <input type="text" name="title" placeholder="Title">
-        <textarea name="note" placeholder="Write your notice" id="" cols="30" rows="10"></textarea>
+    <div class="notesChild">
+        <input type="text" name="title" placeholder="Title" #title ng-model="title">
+        <textarea name="note" placeholder="Write your notice" id="" cols="30" rows="10" #textarea></textarea>
         <div class="btnContainer">
-            <button>Add notice</button>
+            <button (click)="getNotes(title.value)">Add notice</button>
             <button>Clear</button>
         </div>
 
-    </form>
+        <p *ngFor="let note of notes" let i="index">
+            Value is: {{ notes }}
+        </p>
+    </div>
 
 
 </div>
