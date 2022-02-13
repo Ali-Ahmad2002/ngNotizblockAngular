@@ -8,8 +8,8 @@
             <button>Clear</button>
         </div>
 
-        <p *ngFor="let note of notes" let i="index">
-            Value is: {{ notes }}
+        <p *ngFor="let note of service.notes" let i="index">
+            Value is: {{ note }}
         </p>
     </div>
 

@@ -1,12 +1,21 @@
 
-// export class Service {
+export class Service {
 
-//     public notes: string[] = ['hallo'];
-//     public trash: string[] = ['test'];
-//     public archives: string[] = [];
+    note: any;
+
+    notes: string[] = [];
+    trash: string[] = ['test'];
+    archives: string[] = [];
 
 
-//     constructor() { }
+    constructor() {
+        this.getNotes();
+    }
 
+    getNotes() {
+        for (let i = 0; i < this.notes.length; i++) {
+            this.note = this.notes[i];
+        }
+    }
 
-// }
+}
