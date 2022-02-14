@@ -1,6 +1,6 @@
 
-import { Component, OnInit } from '@angular/core';
-import { Service } from 'src/models/service';
+import { Component, Input, OnInit } from '@angular/core';
+import { CurdService } from '../curd.service';
 
 @Component({
   selector: 'app-input-area',
@@ -9,33 +9,29 @@ import { Service } from 'src/models/service';
 })
 
 export class InputAreaComponent implements OnInit {
-
-  service: any = new Service();
-  // notes: string[] = [];
+  curd: any = CurdService;
 
 
   constructor() { }
 
   ngOnInit(): void {
-    // this.onSubmit();
+    this.newNote();
   }
 
-  // renderNotes() {
-  //   for (let i = 0; i < this.notes.length; i++) {
-  //     const note = this.notes[i];
-  //   }
-  // }
-
-  getNotes(val: any) {
-    // this.notes.push(val);
-    console.log('service', this.service.notes);
-    this.service.notes.push(val);
-
+  newNote() {
+    this.curd = new CurdService();
   }
 
-  // onSubmit(title: string, textarea: string) {
-  //   console.log(this.notes);
-  //   this.notes.push(title, textarea);
-  // }
+  getNotes(valTitle: any, valText: any) {
+
+    let values = {
+      title: valTitle,
+      text: valText
+    };
+
+    console.log('service', this.curd.notes);
+    this.curd.notes.push(values);
+
+  }
 
 }

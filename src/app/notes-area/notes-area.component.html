@@ -1,1 +1,6 @@
-
+<div class="main_container">
+    <div class="note_container" *ngFor="let note of curd.notes">
+        <h2>{{ curd.note.title }}</h2>
+        <span>{{ curd.note.text }}</span>
+    </div>
+</div>

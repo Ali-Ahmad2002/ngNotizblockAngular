@@ -2,15 +2,11 @@
 
     <div class="notesChild">
         <input type="text" name="title" placeholder="Title" #title ng-model="title">
-        <textarea name="note" placeholder="Write your notice" id="" cols="30" rows="10" #textarea></textarea>
-        <div class="btnContainer">
-            <button (click)="getNotes(title.value)">Add notice</button>
+        <textarea name="note" placeholder="Write your notice" #textarea cols=" 30 " rows="10 "></textarea>
+        <div class="btnContainer ">
+            <button (click)="getNotes(title.value, textarea.value) ">Add notice</button>
             <button>Clear</button>
         </div>
-
-        <p *ngFor="let note of service.notes" let i="index">
-            Value is: {{ note }}
-        </p>
     </div>
 
 
