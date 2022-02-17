@@ -1,37 +1,76 @@
 
 import { Component, Input, OnInit } from '@angular/core';
-import { CurdService } from '../curd.service';
+import { CrudService } from '../crud.service';
+
 
 @Component({
   selector: 'app-input-area',
   templateUrl: './input-area.component.html',
-  styleUrls: ['./input-area.component.scss']
+  styleUrls: ['./input-area.component.scss'],
 })
 
 export class InputAreaComponent implements OnInit {
-  curd: any = CurdService;
+  @Input() crud: any = CrudService;
+  showOverlay: boolean = false;
+ 
 
-
-  constructor() { }
+  constructor(public Crud: CrudService,  ) { }
 
   ngOnInit(): void {
+   
     this.newNote();
+    this.loadNotes();
   }
 
   newNote() {
-    this.curd = new CurdService();
+    this.crud = new CrudService();
   }
 
-  getNotes(valTitle: any, valText: any) {
+  addNotes(valTitle: any, valText: any) {
 
-    let values = {
-      title: valTitle,
-      text: valText
-    };
+    if (valTitle.length && valText.length > 0) {
+      let values = {
+        title: valTitle,
+        text: valText
+      };
 
-    console.log('service', this.curd.notes);
-    this.curd.notes.push(values);
+      console.log('service', this.crud.notes);
+      this.crud.notes.push(values);
+      this.saveNotes();
+    } else {
+      console.log('bitte füllen sie dieses feld aus');
+    }
 
+
+  }
+
+  saveNotes() {
+    let savedNote = JSON.stringify(this.crud.notes);
+    // let savedText = JSON.stringify(this.crud.notes['text']);
+    localStorage.setItem('note', savedNote);
+    // localStorage.setItem('text', savedText);
+  }
+
+  clearAllNotes(i: string) {
+    this.crud.notes.splice(i);
+    this.saveNotes();
+  }
+
+  loadNotes() {
+    let loadedNote = localStorage.getItem('note');
+    // let loadedText = localStorage.getItem('text');
+    if (loadedNote) {
+      this.crud.notes = JSON.parse(loadedNote);
+      // this.crud.notes = JSON.parse(loadedText);
+    }
+  }
+
+  deletNote(i: string) {
+    let index = Number = this.crud.notes.indexOf(i);
+    this.crud.trash.push(i);
+    this.crud.notes.splice(index, 1);
+    console.log('theTrash:', this.crud.trash);
+    this.saveNotes();
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CurdService } from './curd.service';
+import { CrudService } from './crud.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { CurdService } from './curd.service';
 export class AppComponent {
   title = 'ngNotizblock';
 
-  constructor(public crud: CurdService) {
+  constructor(public crud: CrudService) {
 
   }
 

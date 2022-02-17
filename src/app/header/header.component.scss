@@ -1,5 +1,5 @@
 .headerMain {
-    background-color: gray;
+    background-color: #262626;
     position: fixed;
     top: 0;
     right: 0;
@@ -23,11 +23,11 @@
         font-size: 25px;
         margin-left: 35px;
         text-decoration: none;
-        color: black;
-        transition: all 175ms ease-in-out;
+        color: white;
+        transition: all 75ms ease-in-out;
 
         &:hover {
-            color: white;
+            border-bottom: 4px solid white;
         }
     }
 }

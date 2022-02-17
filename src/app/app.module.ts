@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NotesAreaComponent } from './notes-area/notes-area.component';
 import { InputAreaComponent } from './input-area/input-area.component';
+import { CrudService } from './crud.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -13,13 +15,14 @@ import { InputAreaComponent } from './input-area/input-area.component';
     AppComponent,
     HeaderComponent,
     NotesAreaComponent,
-    InputAreaComponent
+    InputAreaComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [CrudService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

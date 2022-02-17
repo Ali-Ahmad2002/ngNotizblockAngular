@@ -1,13 +1,27 @@
 <div class="notesContainer">
 
     <div class="notesChild">
-        <input type="text" name="title" placeholder="Title" #title ng-model="title">
-        <textarea name="note" placeholder="Write your notice" #textarea cols=" 30 " rows="10 "></textarea>
+        <input required type="text" name="title" placeholder="Title" #title>
+        <textarea required name="note" placeholder="Write your notice" #textarea cols=" 30 " rows="10 "></textarea>
         <div class="btnContainer ">
-            <button (click)="getNotes(title.value, textarea.value) ">Add notice</button>
-            <button>Clear</button>
+            <button (click)="addNotes(title.value, textarea.value)">Add
+                notice</button>
+            <button (click)="clearAllNotes('delet')">Delet all notes</button>
+        </div>
+
+        <div class="alertOverlay">
+            <h2>Bitte füllen sie dieses feld aus</h2>
+        </div>
+
+        <div class="childNoteContainer">
+            <div class="note_container" *ngFor="let note of crud.notes let i='index'">
+                <h2>{{ note.title }}</h2>
+                <span>{{ note.text }}</span>
+                <div class="icon_container">
+                    <img src="assets/img/archive_white_24dp.svg" alt="">
+                    <img (click)="deletNote(note)" src="assets/img/delete_outline_white_24dp.svg" alt="">
+                </div>
+            </div>
         </div>
     </div>
-
-
 </div>

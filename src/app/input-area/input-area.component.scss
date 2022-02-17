@@ -9,16 +9,20 @@
     align-items: center;
     padding-top: 45px;
     input {
-        width: 350px;
+        width: 500px;
         padding: 10px;
+        border: 1px solid #26262685;
+        border-radius: 5px 5px 0px 0px;
         &:focus {
             outline: none;
         }
     }
     textarea {
-        width: 350px;
+        width: 500px;
         padding: 10px;
         height: 80px;
+        border: 1px solid #26262685;
+        border-top: 0;
         &:focus {
             outline: none;
         }
@@ -28,9 +32,114 @@
 .btnContainer {
     display: flex;
     justify-content: space-between;
-    width: 370px;
+    width: 500px;
+    margin-top: 4px;
     button {
         padding: 4px;
         cursor: pointer;
+        border: none;
+        background-color: #262626;
+        color: white;
+        border-radius: 5px;
+        width: 150px;
+        height: 35px;
+        font-size: 16px;
+        letter-spacing: 2px;
+        transition: all 100ms ease-in-out;
+        &:hover {
+            transform: scale(1.02);
+        }
     }
 }
+
+// .mainNoteContainer {}
+.childNoteContainer {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    max-height: 60vh;
+    overflow: auto;
+    h2 {
+        padding-top: 10px;
+    }
+}
+
+.note_container {
+    width: 250px;
+    min-height: 270px;
+    max-height: 270px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #262626;
+    color: white;
+    margin: 5px;
+    word-break: break-all;
+    padding: 16px;
+    padding-top: 0px;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover img {
+        opacity: 1;
+    }
+    span {
+        overflow: auto;
+        margin-bottom: 28px;
+    }
+    img {
+        opacity: 0;
+        height: 30px;
+        object-fit: cover;
+        cursor: pointer;
+        transition: all 250ms ease-in-out;
+        &:hover {
+            transform: scale(1.25);
+        }
+    }
+}
+
+.icon_container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    padding: 0 8px;
+}
+
+.alertOverlay {
+    opacity: 0;
+    z-index: -12;
+    width: 600px;
+    height: 350px;
+    position: absolute;
+    background-color: #000000cc;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: showOverlay 1.5s ease-in-out;
+    top: 50vh;
+    margin-top: -300px;
+    h2 {
+        background-color: #ffffffcc;
+        padding: 26px;
+        color: black;
+        border-radius: 5px;
+    }
+}
+
+// @keyframes showOverlay {
+//     from {
+//         opacity: 0;
+//         z-index: -1;
+//     }
+//     to {
+//         opacity: 1;
+//         z-index: 99;
+//     }
+// }
