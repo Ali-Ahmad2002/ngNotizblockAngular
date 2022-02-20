@@ -1,10 +1,10 @@
 <div class="notesContainer">
 
     <div class="notesChild">
-        <input required type="text" name="title" placeholder="Title" #title>
-        <textarea required name="textarea" #textarea placeholder="Write your notice" cols=" 30 " rows="10"></textarea>
+        <input required type="text" name="title" placeholder="Title" [(ngModel)]="title">
+        <textarea required name="textarea" placeholder="Write your notice" cols=" 30 " rows="10" [(ngModel)]="textarea"></textarea>
         <div class="btnContainer ">
-            <button (click)="addNotes(title.value, textarea.value)" (click)="(title.value='' + textarea.value='')">Add
+            <button (click)="addNotes()">Add
                 notice</button>
             <button (click)="clearAllNotes('delet')">Delet all notes</button>
         </div>

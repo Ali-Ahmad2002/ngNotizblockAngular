@@ -12,7 +12,6 @@ import { CrudService } from '../crud.service';
 export class InputAreaComponent implements OnInit {
   @Input() crud: any = CrudService;
   showOverlay: boolean = false;
-
   title: any;
   textarea: any;
 
@@ -28,17 +27,18 @@ export class InputAreaComponent implements OnInit {
     this.crud = new CrudService();
   }
 
-  addNotes(valTitle: any, valText: any) {
-   
-    if (valTitle.length && valText.length > 0) {
+  addNotes() {
+
+    if (this.title.length && this.textarea.length > 0) {
       let values = {
-        title: valTitle,
-        text: valText 
+        title: this.title,
+        text: this.textarea
       };
       console.log('service', this.crud.notes);
       this.crud.notes.push(values);
       this.saveNotes();
-     
+      this.title = '';
+      this.textarea = '';
     } else {
       console.log('bitte füllen sie die felder aus');
     }
