@@ -12,12 +12,14 @@ import { CrudService } from '../crud.service';
 export class InputAreaComponent implements OnInit {
   @Input() crud: any = CrudService;
   showOverlay: boolean = false;
- 
 
-  constructor(public Crud: CrudService,  ) { }
+  title: any;
+  textarea: any;
+
+
+  constructor(public Crud: CrudService,) { }
 
   ngOnInit(): void {
-   
     this.newNote();
     this.loadNotes();
   }
@@ -27,21 +29,19 @@ export class InputAreaComponent implements OnInit {
   }
 
   addNotes(valTitle: any, valText: any) {
-
+   
     if (valTitle.length && valText.length > 0) {
       let values = {
         title: valTitle,
-        text: valText
+        text: valText 
       };
-
       console.log('service', this.crud.notes);
       this.crud.notes.push(values);
       this.saveNotes();
+     
     } else {
-      console.log('bitte füllen sie dieses feld aus');
+      console.log('bitte füllen sie die felder aus');
     }
-
-
   }
 
   saveNotes() {

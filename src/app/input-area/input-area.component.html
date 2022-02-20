@@ -2,9 +2,9 @@
 
     <div class="notesChild">
         <input required type="text" name="title" placeholder="Title" #title>
-        <textarea required name="note" placeholder="Write your notice" #textarea cols=" 30 " rows="10 "></textarea>
+        <textarea required name="textarea" #textarea placeholder="Write your notice" cols=" 30 " rows="10"></textarea>
         <div class="btnContainer ">
-            <button (click)="addNotes(title.value, textarea.value)">Add
+            <button (click)="addNotes(title.value, textarea.value)" (click)="(title.value='' + textarea.value='')">Add
                 notice</button>
             <button (click)="clearAllNotes('delet')">Delet all notes</button>
         </div>
@@ -18,7 +18,7 @@
                 <h2>{{ note.title }}</h2>
                 <span>{{ note.text }}</span>
                 <div class="icon_container">
-                    <img src="assets/img/archive_white_24dp.svg" alt="">
+                    <img src="assets/img/archive_white_24dp.svg">
                     <img (click)="deletNote(note)" src="assets/img/delete_outline_white_24dp.svg" alt="">
                 </div>
             </div>
