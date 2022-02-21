@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NotesAreaComponent } from './notes-area.component';
+import { TrashComponent } from './trash.component';
 
-describe('NotesAreaComponent', () => {
-  let component: NotesAreaComponent;
-  let fixture: ComponentFixture<NotesAreaComponent>;
+describe('TrashComponent', () => {
+  let component: TrashComponent;
+  let fixture: ComponentFixture<TrashComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotesAreaComponent ]
+      declarations: [ TrashComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NotesAreaComponent);
+    fixture = TestBed.createComponent(TrashComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
