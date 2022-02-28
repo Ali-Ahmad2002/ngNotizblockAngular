@@ -1,5 +1,17 @@
 .mainContainer {
-    margin-top: 11vh;
+    margin-top: 20vh;
+  
+}
+.childCon {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    // margin-top: 50px;
+    max-height: 75vh;
+    overflow: auto;
 }
 
-.note_container {}
+.place {
+    margin-bottom: 1rem;
+}

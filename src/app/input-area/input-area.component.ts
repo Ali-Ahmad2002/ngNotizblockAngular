@@ -1,5 +1,5 @@
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { CrudService } from '../crud.service';
 
 
@@ -10,38 +10,60 @@ import { CrudService } from '../crud.service';
 })
 
 export class InputAreaComponent implements OnInit {
-  @Input() crud: any = CrudService;
+  @ViewChild('alert') alert: any;
+  @ViewChild('urgencyColor') urgencyColor: any;
+  selected = '';
+  bgColor!: string;
+
   showOverlay: boolean = false;
   title: any;
   textarea: any;
+  urgency: any;
+  overlay: boolean = false;
 
 
-  constructor(public Crud: CrudService) { }
+  constructor(public crud: CrudService) { }
 
   ngOnInit(): void {
     this.newNote();
     this.crud.loadNotes();
-    console.log('notes', this.crud.notes);
+    console.log('notes', this.crud.notes.title);
   }
 
   newNote() {
     this.crud = new CrudService();
   }
 
-  addNotes(valTitle: any, valText: any) {
-    if (valTitle.length && valText.length > 0) {
+  addNotes(title: any, textarea: any) {
+    if (title.length && textarea.length > 0) {
       let values = {
-        title: valTitle,
-        text: valText
+        title: title,
+        text: textarea
       };
       this.crud.notes.push(values);
       this.crud.saveNotes();
 
     } else {
-      console.log('bitte füllen sie die felder aus');
+      this.overlay = true;
     }
+    setTimeout(() => {
+      this.overlay = false;
+    }, 1300);
   }
 
+
+  changeColor(color: string) {
+    if (this.selected == 'option1') {
+      color = 'red';
+      this.urgencyColor.nativeElement.style = `background-color: ${color}`;
+    } else if (this.selected == 'option2') {
+      color = 'blue';
+      this.urgencyColor.nativeElement.style = `background-color: ${color}`;
+    } else if (this.selected == 'option3') {
+      color = 'green';
+      this.urgencyColor.nativeElement.style = `background-color: ${color}`;
+    }
+  }
 
 
   clearAllNotes(i: string) {
@@ -56,6 +78,14 @@ export class InputAreaComponent implements OnInit {
     this.crud.trash.push(i);
     this.crud.saveNotes();
     console.log('theTrash:', this.crud.trash);
+  }
+
+
+  addToArchiv(notes: string) {
+    let index = Number = this.crud.notes.indexOf(notes);
+    this.crud.notes.splice(index, 1);
+    this.crud.archives.push(notes);
+    this.crud.saveNotes();
   }
 
 }

@@ -5,33 +5,34 @@ import { Injectable } from '@angular/core';
 })
 export class CrudService {
 
-  public title: any;
-  public text: any;
+  // public title: any;
+  // public text: any;
 
-  public notes = [];
-  public trash = [
-    {
-      title:'hard',
-      text:'gecoded'
-    }
-  ];
-  public archives = [];
+  public notes: any = [];
+  public trash: any = [];
+  public archives: any = [];
 
   constructor() { }
 
   saveNotes() {
     let savedNote = JSON.stringify(this.notes);
-    // let savedText = JSON.stringify(this.crud.notes['text']);
+    let savedTrash = JSON.stringify(this.trash);
+    let savedArchiv = JSON.stringify(this.archives);
     localStorage.setItem('note', savedNote);
-    // localStorage.setItem('text', savedText);
+    localStorage.setItem('trash', savedTrash);
+    localStorage.setItem('archives', savedArchiv);
   }
 
   loadNotes() {
-    let loadedNote = localStorage.getItem('note');
-    // let loadedText = localStorage.getItem('text');
-    if (loadedNote) {
+    let loadedNote: any = localStorage.getItem('note');
+    let loadedTrash: any = localStorage.getItem('trash');
+    let loadedArchiv: any = localStorage.getItem('archives');
+    if (loadedNote && loadedTrash && loadedArchiv) {
       this.notes = JSON.parse(loadedNote);
-      // this.crud.notes = JSON.parse(loadedText);
+      this.trash = JSON.parse(loadedTrash);
+      this.archives = JSON.parse(loadedArchiv);
+    } else {
+      console.log('TEST');
     }
   }
 }

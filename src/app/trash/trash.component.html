@@ -1,10 +1,13 @@
 <div class="mainContainer">
-    <div class="note_container" *ngFor="let trashNote of crud.trash  let i = index;">
-        <h2>{{ trashNote.title }}</h2>
-        <span>{{ trashNote.text }}</span>
-        <div class="icon_container">
-            <img src="assets/img/archive_white_24dp.svg">
-            <img (click)="deletNote(trashNote)" src="assets/img/delete_outline_white_24dp.svg" alt="">
+    <div class="childCon">
+        <div class="note_container place" *ngFor="let trashNote of serviceCrud.trash; let i=index">
+            <h2>{{ trashNote.title }}</h2>
+            <span>{{ trashNote.text }}</span>
+            <div class="icon_container">
+                <img (click)="backToNotes(trashNote)" src="assets/img/restore_white_24dp.svg">
+                <img (click)="deletNote(trashNote)" src="assets/img/delete_outline_white_24dp.svg" alt="">
+            </div>
         </div>
     </div>
+    
 </div>

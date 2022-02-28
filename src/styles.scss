@@ -10,11 +10,10 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-html,
-body {
-    height: 100%;
-}
-
+// html,
+// body {
+//     height: 100%;
+// }
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -36,6 +35,8 @@ body {
     position: relative;
     border-radius: 10px;
     cursor: pointer;
+    margin-left: 1rem;
+    margin-right: 1rem;
     &:hover img {
         opacity: 1;
     }
@@ -53,4 +54,24 @@ body {
             transform: scale(1.25);
         }
     }
+}
+
+.icon_container {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    padding: 0 8px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }

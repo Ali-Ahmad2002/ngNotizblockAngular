@@ -1,0 +1,11 @@
+<div class="mainContainer">
+    <div class="childCon">
+        <div class="note_container place" *ngFor="let archivNote of serviceCrud.archives; let i=index">
+            <h2>{{ archivNote.title }}</h2>
+            <span>{{ archivNote.text }}</span>
+            <div class="icon_container">
+                <img (click)="backToNotes(archivNote)" src="assets/img/restore_white_24dp.svg">
+                <img (click)="deletNote(archivNote)" src="assets/img/delete_outline_white_24dp.svg" alt="">
+            </div>
+        </div>
+    </div>
