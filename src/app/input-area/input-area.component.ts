@@ -14,6 +14,7 @@ export class InputAreaComponent implements OnInit {
   @ViewChild('urgencyColor') urgencyColor: any;
   selected = '';
   bgColor!: string;
+  deletedNote:number = 0;
 
   showOverlay: boolean = false;
   title: any;
@@ -66,9 +67,12 @@ export class InputAreaComponent implements OnInit {
   }
 
 
-  clearAllNotes(i: string) {
+  clearAllNotes() {
+    let i = this.deletedNote % this.crud.notes.length;
     this.crud.notes.splice(i);
+    this.crud.trash.push(i);
     this.crud.saveNotes();
+    this.deletedNote++;
   }
 
 
