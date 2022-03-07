@@ -7,5 +7,9 @@
                 <img (click)="backToNotes(archivNote)" src="assets/img/restore_white_24dp.svg">
                 <img (click)="deletNote(archivNote)" src="assets/img/delete_outline_white_24dp.svg" alt="">
             </div>
+
+            <div [style.background-color]="serviceCrud.getColor(archivNote.color)" class="urgencyColor">
+            </div>
+
         </div>
     </div>

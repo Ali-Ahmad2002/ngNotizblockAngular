@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
+import { InputAreaComponent } from '../input-area/input-area.component';
 
 @Component({
   selector: 'app-trash',

@@ -14,6 +14,18 @@ export class CrudService {
 
   constructor() { }
 
+  getColor(color: any) {
+    if (color == 'option1') {
+      return 'green';
+    } else if (color == 'option2') {
+      return 'blue';
+    } else if (color == 'option3') {
+      return 'red';
+    } else {
+      return color
+    }
+  }
+
   saveNotes() {
     let savedNote = JSON.stringify(this.notes);
     let savedTrash = JSON.stringify(this.trash);

@@ -10,11 +10,12 @@ import { CrudService } from '../crud.service';
 })
 
 export class InputAreaComponent implements OnInit {
-  @ViewChild('alert') alert: any;
+  // @ViewChild('alert') alert: any;
   @ViewChild('urgencyColor') urgencyColor: any;
   selected = '';
   bgColor!: string;
-  deletedNote:number = 0;
+  deletedNote: number = 0;
+  id: any;
 
   showOverlay: boolean = false;
   title: any;
@@ -35,15 +36,17 @@ export class InputAreaComponent implements OnInit {
     this.crud = new CrudService();
   }
 
-  addNotes(title: any, textarea: any) {
+  addNotes(title: any, textarea: any, selectedColor: any) {
     if (title.length && textarea.length > 0) {
       let values = {
         title: title,
-        text: textarea
+        text: textarea,
+        color: this.crud.getColor(selectedColor)
       };
+      
       this.crud.notes.push(values);
       this.crud.saveNotes();
-
+      console.log(values.color);
     } else {
       this.overlay = true;
     }
@@ -52,19 +55,21 @@ export class InputAreaComponent implements OnInit {
     }, 1300);
   }
 
+  
 
-  changeColor(color: string) {
-    if (this.selected == 'option1') {
-      color = 'red';
-      this.urgencyColor.nativeElement.style = `background-color: ${color}`;
-    } else if (this.selected == 'option2') {
-      color = 'blue';
-      this.urgencyColor.nativeElement.style = `background-color: ${color}`;
-    } else if (this.selected == 'option3') {
-      color = 'green';
-      this.urgencyColor.nativeElement.style = `background-color: ${color}`;
-    }
-  }
+
+  // changeColor(color: string) {
+  //   if (this.selected == 'option1') {
+  //     color = 'red';
+  //     this.urgencyColor.nativeElement.style = `background-color: ${color}`;
+  //   } else if (this.selected == 'option2') {
+  //     color = 'blue';
+  //     this.urgencyColor.nativeElement.style = `background-color: ${color}`;
+  //   } else if (this.selected == 'option3') {
+  //     color = 'green';
+  //     this.urgencyColor.nativeElement.style = `background-color: ${color}`;
+  //   }
+  // }
 
 
   clearAllNotes() {

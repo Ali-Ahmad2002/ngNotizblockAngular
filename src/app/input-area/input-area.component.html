@@ -3,16 +3,22 @@
     <div class="notesChild">
         <input required type="text" name="title" placeholder="Title" #title>
         <textarea required name="textarea" placeholder="Write your notice" cols=" 30 " rows="10" #textarea></textarea>
-        <mat-label>Select urgency</mat-label>
-        <mat-select class="selectUrgency" [(value)]="selected">
-            <!-- <mat-option>add</mat-option> -->
-            <mat-option value="option1">Low</mat-option>
-            <mat-option value="option2">Medium</mat-option>
-            <mat-option value="option3">High</mat-option>
-        </mat-select>
+
         <div class="btnContainer ">
-            <button (click)="addNotes(title.value, textarea.value)" (click)="changeColor(urgencyColor)" (click)="[title.value='', textarea.value='']">Add
+            <button (click)="addNotes(title.value, textarea.value, selected)"
+                (click)="[title.value='', textarea.value='', selects.value='']">Add
                 notice</button>
+            <div class="formField">
+                <!-- <mat-form-field appearance="fill"> -->
+                <!-- <mat-label>Select urgency</mat-label> -->
+                <mat-select placeholder="Select urgency" class="selectUrgency" #selects [(value)]="selected">
+                    <!-- <mat-option>add</mat-option> -->
+                    <mat-option value="option1">Low</mat-option>
+                    <mat-option value="option2">Medium</mat-option>
+                    <mat-option value="option3">High</mat-option>
+                </mat-select>
+                <!-- </mat-form-field> -->
+            </div>
             <button (click)="clearAllNotes()">Delete all notes</button>
         </div>
 
@@ -26,7 +32,7 @@
                 <h2>{{ note.title }}</h2>
                 <span>{{ note.text }}</span>
 
-                <div #urgencyColor [style]="bgColor" class="urgencyColor">
+                <div [style.background-color]="crud.getColor(note.color)" class="urgencyColor">
                 </div>
 
                 <div class="icon_container">
