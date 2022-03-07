@@ -30,6 +30,19 @@
             border-bottom: 4px solid white;
         }
     }
+
+    button {
+        margin-right: 100px;
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-size: 25px;
+        cursor: pointer;
+        transition: all 75ms ease-in-out;
+        &:hover {
+            border-bottom: 4px solid white;
+        }
+    }
 }
 
 .logoLinks {

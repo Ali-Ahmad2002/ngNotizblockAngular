@@ -11,6 +11,7 @@ export class CrudService {
   public notes: any = [];
   public trash: any = [];
   public archives: any = [];
+  bgColors: any = [];
 
   constructor() { }
 
@@ -24,6 +25,11 @@ export class CrudService {
     } else {
       return color
     }
+  }
+
+  changeBgColor() {
+    console.log(this.bgColors)
+    return this.bgColors;
   }
 
   saveNotes() {

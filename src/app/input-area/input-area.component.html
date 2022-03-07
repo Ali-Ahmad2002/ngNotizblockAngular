@@ -28,7 +28,8 @@
         </div>
 
         <div class="childNoteContainer">
-            <div class="note_container" *ngFor="let note of crud.notes let i='index'">
+            <div class="note_container" *ngFor="let note of crud.notes let i='index'"
+                [style.background-color]="crud.bgColors[0]">
                 <h2>{{ note.title }}</h2>
                 <span>{{ note.text }}</span>
 

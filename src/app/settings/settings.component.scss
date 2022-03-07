@@ -1,0 +1,17 @@
+.mainContainer {
+
+}
+
+.colorChange {
+    display: flex;
+    span {
+        margin-right: 1rem;
+        font-size: 1rem;
+    }
+    input {
+        margin-right: 1rem;
+    }
+    button {
+        cursor: pointer;
+    }
+}

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';	
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { CrudService } from './crud.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TrashComponent } from './trash/trash.component';
 import { ArchivComponent } from './archiv/archiv.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 @NgModule({
@@ -20,6 +22,7 @@ import { ArchivComponent } from './archiv/archiv.component';
     InputAreaComponent,
     TrashComponent,
     ArchivComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { ArchivComponent } from './archiv/archiv.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [CrudService],
   bootstrap: [AppComponent]
